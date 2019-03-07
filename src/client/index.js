@@ -1,0 +1,9 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+// import { BrowserRouter } from 'react-router-dom'
+// import { renderRoutes } from 'react-router-config'
+import routes from '@/Routes'
+
+const App = () => (<div>123</div>)
+
+ReactDOM.hydrate(<App />, document.getElementById('root'))

@@ -1,0 +1,34 @@
+{
+  "name": "test-babel-jsx-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-static": "^5.0.0",
+    "nodemon": "^1.18.10",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.0",
+    "isomorphic-style-loader": "^5.0.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-merge": "^4.2.1",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "scripts": {
+    "dev": "npm-run-all --parallel dev:**",
+    "dev:start": "nodemon --watch build --exec node ./build/index.js",
+    "dev:build:server": "webpack --config ./config/webpack.server.js --watch",
+    "dev:build:client": "webpack --config ./config/webpack.client.js --watch"
+  },
+  "author": "",
+  "license": "ISC"
+}
