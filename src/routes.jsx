@@ -1,13 +1,14 @@
-import App from '@/app'
 import Home from '@/views/home'
 import About from '@/views/about'
-import NotFound from '@/view/404'
+
+// export default (
+//   <Fragment>
+//     <Route path='/' exact component={Home}></Route>
+//     <Route path='/login' exact component={About}></Route>
+//   </Fragment>
+// )
 
 export default [{
-  path: '/',
-  component: App,
-  // 多级路由
-  routes: [{
     path: '/',
     component: Home,
     exact: true,
@@ -17,7 +18,5 @@ export default [{
     component: About,
     exact: true,
     key: 'about',
-  }, {
-    component: NotFound
-  }]
-}]
+  }
+]

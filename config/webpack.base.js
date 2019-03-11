@@ -1,9 +1,9 @@
-const path = require('path')
+const { setPath } = require('./utils')
 
 module.exports = {
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': setPath('src')
     },
     extensions: [
       '.js', '.jsx'

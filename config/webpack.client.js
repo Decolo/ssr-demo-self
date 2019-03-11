@@ -4,7 +4,7 @@ const { setPath } = require('./utils')
 
 module.exports = merge(base, {
   // 入口文件
-  entry: setPath('src/client/index.js'),
+  entry: setPath('src/client/index.jsx'),
   // 表示是开发环境还是生产环境的代码
   mode: 'development',
   // 输出信息

@@ -81,32 +81,68 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/server/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/server/index.jsx");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/server/index.js":
-/*!*****************************!*\
-  !*** ./src/server/index.js ***!
-  \*****************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var koa__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! koa */ \"koa\");\n/* harmony import */ var koa__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(koa__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var koa_static__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! koa-static */ \"koa-static\");\n/* harmony import */ var koa_static__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(koa_static__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module 'react-router-config'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module '@/store'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_5__);\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module '@/routes'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n/* harmony import */ var _render__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./render */ \"./src/server/render.js\");\n\n\n\n\n\n\n // react-router官网示例使用的是 react-router-dom中的 matchPath，但此 API无法匹配多级路由，所以使用 matchRoutes\n// import { matchRoutes } from 'react-router-config'\n\n\n\nconst app = new koa__WEBPACK_IMPORTED_MODULE_0___default.a();\napp.use(koa_static__WEBPACK_IMPORTED_MODULE_1___default()(path__WEBPACK_IMPORTED_MODULE_2___default.a.resolve(process.cwd() + '/public')));\napp.use(async ctx => {\n  const store = !(function webpackMissingModule() { var e = new Error(\"Cannot find module '@/store'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(ctx.request);\n  const promises = [];\n  const mtRoutes = !(function webpackMissingModule() { var e = new Error(\"Cannot find module 'react-router-config'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(!(function webpackMissingModule() { var e = new Error(\"Cannot find module '@/routes'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), ctx.request.path);\n  mtRoutes.forEach(item => {\n    if (item.route.loadData) {\n      promises.push(new Promise(resolve => {\n        item.route.loadData(store).then(resolve).catch(resolve);\n      }));\n    }\n  });\n  await Promise.all(promises);\n  await Object(_render__WEBPACK_IMPORTED_MODULE_6__[\"default\"])(ctx, store, !(function webpackMissingModule() { var e = new Error(\"Cannot find module '@/routes'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));\n});\napp.listen(3000);\n\n//# sourceURL=webpack:///./src/server/index.js?");
-
-/***/ }),
-
-/***/ "./src/server/render.js":
-/*!******************************!*\
-  !*** ./src/server/render.js ***!
-  \******************************/
+/***/ "./src/routes.jsx":
+/*!************************!*\
+  !*** ./src/routes.jsx ***!
+  \************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_1__);\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module 'react-router-dom'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module 'react-redux'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module 'react-router-config'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module 'stream-to-promise'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n\n\n\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (async (ctx, store, routes) => {});\n\n//# sourceURL=webpack:///./src/server/render.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _views_home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/views/home */ \"./src/views/home.jsx\");\n/* harmony import */ var _views_about__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/views/about */ \"./src/views/about.jsx\");\n\n // export default (\n//   <Fragment>\n//     <Route path='/' exact component={Home}></Route>\n//     <Route path='/login' exact component={About}></Route>\n//   </Fragment>\n// )\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ([{\n  path: '/',\n  component: _views_home__WEBPACK_IMPORTED_MODULE_0__[\"default\"],\n  exact: true,\n  key: 'home'\n}, {\n  path: '/about',\n  component: _views_about__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  exact: true,\n  key: 'about'\n}]);\n\n//# sourceURL=webpack:///./src/routes.jsx?");
+
+/***/ }),
+
+/***/ "./src/server/index.jsx":
+/*!******************************!*\
+  !*** ./src/server/index.jsx ***!
+  \******************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var koa__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! koa */ \"koa\");\n/* harmony import */ var koa__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(koa__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var koa_static__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! koa-static */ \"koa-static\");\n/* harmony import */ var koa_static__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(koa_static__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_3__);\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module 'redux'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_6__);\n/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/store */ \"./src/store/index.js\");\n/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/routes */ \"./src/routes.jsx\");\n\n\n\n\n\n\n\n\n\nconst app = new koa__WEBPACK_IMPORTED_MODULE_0___default.a();\napp.use(koa_static__WEBPACK_IMPORTED_MODULE_2___default()(path__WEBPACK_IMPORTED_MODULE_3___default.a.resolve(process.cwd() + '/public')));\napp.use(async ctx => {\n  const store = Object(_store__WEBPACK_IMPORTED_MODULE_7__[\"getStore\"])();\n  const promises = [];\n  const mtRoutes = matchRoutes(_routes__WEBPACK_IMPORTED_MODULE_8__[\"default\"], ctx.request.path);\n  mtRoutes.forEach(item => {\n    if (item.route.loadData) {\n      promises.push(item.route.loadData(store));\n    }\n  });\n  await Promise.all(promises);\n  await render(ctx, store, _routes__WEBPACK_IMPORTED_MODULE_8__[\"default\"]);\n  const app = Object(react_dom_server__WEBPACK_IMPORTED_MODULE_5__[\"renderToNodeStream\"])(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(!(function webpackMissingModule() { var e = new Error(\"Cannot find module 'redux'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {\n    store: Object(_store__WEBPACK_IMPORTED_MODULE_7__[\"getStore\"])()\n  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__[\"StaticRouter\"], {\n    location: ctx.request.path,\n    context: {}\n  }, Routes)));\n  ctx.response.type = 'html';\n  ctx.body = `\n    <!DOCTYPE html>\n    <html lang=\"en\">\n      <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n        <title>Document</title>\n      </head>\n      <body>\n        <div id=\"root\">${app}</div>\n        <script src=\"/index.js\"></script>\n      </body>\n    </html>\n  `;\n});\napp.listen(3000);\n\n//# sourceURL=webpack:///./src/server/index.jsx?");
+
+/***/ }),
+
+/***/ "./src/store/index.js":
+/*!****************************!*\
+  !*** ./src/store/index.js ***!
+  \****************************/
+/*! exports provided: getStore, getClientStore */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getStore\", function() { return getStore; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getClientStore\", function() { return getClientStore; });\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module 'redux'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n\nconst getStore = req => {\n  return !(function webpackMissingModule() { var e = new Error(\"Cannot find module 'redux'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(reducer);\n};\nconst getClientStore = () => {\n  // 从服务器端输出的页面上拿到脱水的数据\n  const defaultState = window.context.state; // 当做 store的初始数据（即注水）\n\n  return !(function webpackMissingModule() { var e = new Error(\"Cannot find module 'redux'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(reducer, defaultState);\n};\n\n//# sourceURL=webpack:///./src/store/index.js?");
+
+/***/ }),
+
+/***/ "./src/views/about.jsx":
+/*!*****************************!*\
+  !*** ./src/views/about.jsx ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconst About = () => {\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \"about\");\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (About);\n\n//# sourceURL=webpack:///./src/views/about.jsx?");
+
+/***/ }),
+
+/***/ "./src/views/home.jsx":
+/*!****************************!*\
+  !*** ./src/views/home.jsx ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconst Home = () => {\n  const handleClick = () => {\n    alert(111);\n  };\n\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"button\", {\n    onClick: handleClick\n  }, \"click\"));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Home);\n\n//# sourceURL=webpack:///./src/views/home.jsx?");
 
 /***/ }),
 
@@ -162,6 +198,17 @@ eval("module.exports = require(\"react\");\n\n//# sourceURL=webpack:///external_
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"react-dom/server\");\n\n//# sourceURL=webpack:///external_%22react-dom/server%22?");
+
+/***/ }),
+
+/***/ "react-router-dom":
+/*!***********************************!*\
+  !*** external "react-router-dom" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"react-router-dom\");\n\n//# sourceURL=webpack:///external_%22react-router-dom%22?");
 
 /***/ })
 
