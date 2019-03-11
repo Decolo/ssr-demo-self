@@ -1,12 +1,9 @@
 import Koa from 'koa'
-import React from 'react'
 import serve from 'koa-static'
 import path from 'path'
-import { Provider } from 'redux'
-import { renderToNodeStream } from 'react-dom/server'
-import { StaticRouter } from 'react-router-dom'
 import { getStore } from '@/store'
 import routes from '@/routes'
+import render from './render'
 
 const app = new Koa()
 app.use(serve(path.resolve(process.cwd() + '/public')))
@@ -17,20 +14,17 @@ app.use(async(ctx) => {
   const mtRoutes = matchRoutes(routes, ctx.request.path)
   mtRoutes.forEach(item => {
     if (item.route.loadData) {
-      promises.push(item.route.loadData(store))
+      promises.push(new Promise(resolve => {
+        item.route.loadData(store).then(resolve).catch(resolve)
+      }))
     }
   })
 
   await Promise.all(promises)
   await render(ctx, store, routes)
 
-  const app = renderToNodeStream(
-    <Provider store={getStore()}>
-      <StaticRouter location={ctx.request.path} context={{}}>
-        {Routes}
-      </StaticRouter>
-    </Provider>
-  )
+  
+  
 
   ctx.response.type = 'html'
   ctx.body = `
