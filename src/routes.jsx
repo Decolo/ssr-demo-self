@@ -1,22 +1,17 @@
 import Home from '@/views/home'
 import About from '@/views/about'
 
-// export default (
-//   <Fragment>
-//     <Route path='/' exact component={Home}></Route>
-//     <Route path='/login' exact component={About}></Route>
-//   </Fragment>
-// )
-
 export default [{
     path: '/',
     component: Home,
     exact: true,
-    key: 'home'
+    key: 'home',
+    loadData: Home.loadData
   }, {
     path: '/about',
     component: About,
     exact: true,
     key: 'about',
+    loadData: About.loadData
   }
 ]

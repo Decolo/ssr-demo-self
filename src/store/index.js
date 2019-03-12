@@ -1,4 +1,11 @@
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
+import homeReducer from '@views/home/reducer'
+import aboutReducer from '@views/about/reducer'
+
+const reducer = combineReducers({
+  home: homeReducer,
+  about: aboutReducer
+})
 
 export const getStore = req => {
   return createStore(reducer)

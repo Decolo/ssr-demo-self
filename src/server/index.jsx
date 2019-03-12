@@ -1,6 +1,7 @@
 import Koa from 'koa'
 import serve from 'koa-static'
 import path from 'path'
+import { matchRoutes } from 'react-router-config'
 import { getStore } from '@/store'
 import routes from '@/routes'
 import render from './render'
@@ -19,29 +20,10 @@ app.use(async(ctx) => {
       }))
     }
   })
-
+  // 服务器请求数据，先获取当前页面所需数据，再填充到store
   await Promise.all(promises)
+  // 根据服务端填充的store进行
   await render(ctx, store, routes)
-
-  
-  
-
-  ctx.response.type = 'html'
-  ctx.body = `
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
-      </head>
-      <body>
-        <div id="root">${app}</div>
-        <script src="/index.js"></script>
-      </body>
-    </html>
-  `
 })
 
 app.listen(3000)
