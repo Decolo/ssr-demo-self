@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
-import homeReducer from '@views/home/reducer'
-import aboutReducer from '@views/about/reducer'
+import homeReducer from '@/views/home/reducer'
+import aboutReducer from '@/views/about/reducer'
 
 const reducer = combineReducers({
   home: homeReducer,

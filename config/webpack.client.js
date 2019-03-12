@@ -10,7 +10,7 @@ module.exports = merge(base, {
   // 输出信息
   output: {
     // 输出文件名
-    filename: 'index.js',
+    filename: 'js/index.js',
     // 输出文件路径
     path: setPath('public')
   }

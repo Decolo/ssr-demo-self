@@ -13,10 +13,13 @@ app.use(async(ctx) => {
   const store = getStore()
   const promises = []
   const mtRoutes = matchRoutes(routes, ctx.request.path)
+  // console.log(mtRoutes)
+  // debugger
   mtRoutes.forEach(item => {
     if (item.route.loadData) {
       promises.push(new Promise(resolve => {
-        item.route.loadData(store).then(resolve).catch(resolve)
+        item.route.loadData(store)
+        resolve()
       }))
     }
   })

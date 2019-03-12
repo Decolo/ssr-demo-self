@@ -33,7 +33,8 @@ export default async (ctx, store, routes) => {
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <meta httpquiv="X-UA-Compatible" content="ie=edge">
-          <title>Document</title>
+          <title>测试</title>
+          <link rel="stylesheet" href="css/main.css">
         </head>
         <body>
           <div id="root">${data.toString()}</div>
@@ -44,7 +45,7 @@ export default async (ctx, store, routes) => {
             }
           </script>
           <!-- 引入同构代码 -->
-          <script src="/index.js"></script>
+          <script src="js/index.js"></script>
         </body>
       </html>
     `
