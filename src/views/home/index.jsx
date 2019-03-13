@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { doFetchHomeData } from './action'
+import { doFetchHomeData } from '@/store/action'
 import './style.scss'
 
 class Home extends React.Component {
@@ -20,15 +20,8 @@ class Home extends React.Component {
 }
 
 Home.loadData = store => store.dispatch(doFetchHomeData())
-
 const mapStateToProps = state => ({ 
  list: state.home.list
 })
 
-const mapDispatchToProps = dispatch => ({
-  doFetchHomeData: () => {
-    return dispatch(doFetchHomeData())
-  }
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps)(Home)

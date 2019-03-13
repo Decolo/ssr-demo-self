@@ -1,16 +1,19 @@
-import { FETCH_HOME_DATA } from './action'
+import { REQUEST_HOME_DATA, RECEIVE_HOME_DATA } from './action'
 
-export default (state = {
-  list: []
-}, action) => {
-  switch(action.type) {
-    case FETCH_HOME_DATA:
-      const list = [...state.list, 1]
-      return {
-        ...state,
-        list
-      }
-    default: 
-      return state
-  }
-}
+import { handleActions } from 'redux-actions'
+
+const homeData = handleActions({
+  [REQUEST_HOME_DATA]: state => ({
+    ...state,
+    isLoading: true
+  }),
+  [RECEIVE_HOME_DATA]: (state, action) => ({
+    isLoading: false,
+    data: action.payload.data
+  })
+}, {
+  isLoading: false,
+  data: []
+})
+
+export default homeData

@@ -130,19 +130,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getStore\", function() { return getStore; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getClientStore\", function() { return getClientStore; });\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"redux\");\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _views_home_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/views/home/reducer */ \"./src/views/home/reducer.js\");\n/* harmony import */ var _views_about_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/views/about/reducer */ \"./src/views/about/reducer.js\");\n\n\n\nconst reducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  home: _views_home_reducer__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  about: _views_about_reducer__WEBPACK_IMPORTED_MODULE_2__[\"default\"]\n});\nconst getStore = req => {\n  return Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"createStore\"])(reducer);\n};\nconst getClientStore = () => {\n  // 从服务器端输出的页面上拿到脱水的数据\n  const defaultState = window.context.state; // 当做 store的初始数据（即注水）\n\n  return Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"createStore\"])(reducer, defaultState);\n};\n\n//# sourceURL=webpack:///./src/store/index.js?");
-
-/***/ }),
-
-/***/ "./src/views/about/action.js":
-/*!***********************************!*\
-  !*** ./src/views/about/action.js ***!
-  \***********************************/
-/*! exports provided: FETCH_ABOUT_DATA, doFetchAboutData */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FETCH_ABOUT_DATA\", function() { return FETCH_ABOUT_DATA; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"doFetchAboutData\", function() { return doFetchAboutData; });\nconst FETCH_ABOUT_DATA = 'FETCH_ABOUT_DATA';\nconst doFetchAboutData = () => {\n  return {\n    type: FETCH_ABOUT_DATA\n  };\n};\n\n//# sourceURL=webpack:///./src/views/about/action.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getStore\", function() { return getStore; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getClientStore\", function() { return getClientStore; });\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"redux\");\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var redux_saga__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-saga */ \"redux-saga\");\n/* harmony import */ var redux_saga__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_saga__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _views_home_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/views/home/reducer */ \"./src/views/home/reducer.js\");\n/* harmony import */ var _views_about_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/views/about/reducer */ \"./src/views/about/reducer.js\");\n\n\n\n\nconst sagaMiddleware = redux_saga__WEBPACK_IMPORTED_MODULE_1___default()();\nconst reducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  home: _views_home_reducer__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  about: _views_about_reducer__WEBPACK_IMPORTED_MODULE_3__[\"default\"]\n});\nconst getStore = req => {\n  return Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"createStore\"])(reducer, Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"applyMiddleware\"])(sagaMiddleware));\n};\nconst getClientStore = () => {\n  // 从服务器端输出的页面上拿到脱水的数据\n  const defaultState = window.context.state; // 当做 store的初始数据（即注水）\n\n  return Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"createStore\"])(reducer, defaultState, Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"applyMiddleware\"])(sagaMiddleware));\n};\n\n//# sourceURL=webpack:///./src/store/index.js?");
 
 /***/ }),
 
@@ -163,10 +151,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
   !*** ./src/views/about/reducer.js ***!
   \************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action */ \"./src/views/about/action.js\");\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ((state = {\n  list: []\n}, action) => {\n  switch (action.type) {\n    case _action__WEBPACK_IMPORTED_MODULE_0__[\"FETCH_ABOUT_DATA\"]:\n      const list = [...state.list, 1];\n      return { ...state,\n        list\n      };\n\n    default:\n      return state;\n  }\n});\n\n//# sourceURL=webpack:///./src/views/about/reducer.js?");
+eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nError: ENOENT: no such file or directory, open '/Users/caicheng/testDir/test-ssr-demo/src/views/about/reducer.js'\");\n\n//# sourceURL=webpack:///./src/views/about/reducer.js?");
 
 /***/ }),
 
@@ -175,10 +162,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _act
   !*** ./src/views/home/action.js ***!
   \**********************************/
 /*! exports provided: FETCH_HOME_DATA, doFetchHomeData */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FETCH_HOME_DATA\", function() { return FETCH_HOME_DATA; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"doFetchHomeData\", function() { return doFetchHomeData; });\nconst FETCH_HOME_DATA = 'FETCH_HOME_DATA';\nconst doFetchHomeData = () => {\n  return {\n    type: FETCH_HOME_DATA\n  };\n};\n\n//# sourceURL=webpack:///./src/views/home/action.js?");
+eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nError: ENOENT: no such file or directory, open '/Users/caicheng/testDir/test-ssr-demo/src/views/home/action.js'\");\n\n//# sourceURL=webpack:///./src/views/home/action.js?");
 
 /***/ }),
 
@@ -190,7 +176,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ \"react-redux\");\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./action */ \"./src/views/home/action.js\");\n/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.scss */ \"./src/views/home/style.scss\");\n/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_style_scss__WEBPACK_IMPORTED_MODULE_3__);\n\n\n\n\n\nclass Home extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {\n  componentDidMount() {\n    console.log(this.props.list);\n  }\n\n  handleClick() {\n    alert(111);\n  }\n\n  render() {\n    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"button\", {\n      onClick: this.handleClick\n    }, \"click\"));\n  }\n\n}\n\nHome.loadData = store => store.dispatch(Object(_action__WEBPACK_IMPORTED_MODULE_2__[\"doFetchHomeData\"])());\n\nconst mapStateToProps = state => ({\n  list: state.home.list\n});\n\nconst mapDispatchToProps = dispatch => ({\n  doFetchHomeData: () => {\n    return dispatch(Object(_action__WEBPACK_IMPORTED_MODULE_2__[\"doFetchHomeData\"])());\n  }\n});\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__[\"connect\"])(mapStateToProps, mapDispatchToProps)(Home));\n\n//# sourceURL=webpack:///./src/views/home/index.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ \"react-redux\");\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_1__);\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module '@/store/action'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.scss */ \"./src/views/home/style.scss\");\n/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_style_scss__WEBPACK_IMPORTED_MODULE_3__);\n\n\n\n\n\nclass Home extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {\n  componentDidMount() {\n    console.log(this.props.list);\n  }\n\n  handleClick() {\n    alert(111);\n  }\n\n  render() {\n    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"button\", {\n      onClick: this.handleClick\n    }, \"click\"));\n  }\n\n}\n\nHome.loadData = store => store.dispatch(!(function webpackMissingModule() { var e = new Error(\"Cannot find module '@/store/action'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }())());\n\nconst mapStateToProps = state => ({\n  list: state.home.list\n});\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__[\"connect\"])(mapStateToProps)(Home));\n\n//# sourceURL=webpack:///./src/views/home/index.jsx?");
 
 /***/ }),
 
@@ -202,7 +188,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action */ \"./src/views/home/action.js\");\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ((state = {\n  list: []\n}, action) => {\n  switch (action.type) {\n    case _action__WEBPACK_IMPORTED_MODULE_0__[\"FETCH_HOME_DATA\"]:\n      const list = [...state.list, 1];\n      return { ...state,\n        list\n      };\n\n    default:\n      return state;\n  }\n});\n\n//# sourceURL=webpack:///./src/views/home/reducer.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action */ \"./src/views/home/action.js\");\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module 'redux-actions'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n\n\nconst homeData = !(function webpackMissingModule() { var e = new Error(\"Cannot find module 'redux-actions'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({\n  [_action__WEBPACK_IMPORTED_MODULE_0__[\"REQUEST_HOME_DATA\"]]: state => ({ ...state,\n    isLoading: true\n  }),\n  [_action__WEBPACK_IMPORTED_MODULE_0__[\"RECEIVE_HOME_DATA\"]]: (state, action) => ({\n    isLoading: false,\n    data: action.payload.data\n  })\n}, {\n  isLoading: false,\n  data: []\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (homeData);\n\n//# sourceURL=webpack:///./src/views/home/reducer.js?");
 
 /***/ }),
 
@@ -211,9 +197,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _act
   !*** ./src/views/home/style.scss ***!
   \***********************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("throw new Error(\"Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\\nTypeError: this[MODULE_TYPE] is not a function\\n    at childCompiler.runAsChild (/Users/caicheng/testDir/test-ssr-demo/node_modules/mini-css-extract-plugin/dist/loader.js:141:24)\\n    at compile (/Users/caicheng/testDir/test-ssr-demo/node_modules/webpack/lib/Compiler.js:306:11)\\n    at hooks.afterCompile.callAsync.err (/Users/caicheng/testDir/test-ssr-demo/node_modules/webpack/lib/Compiler.js:630:14)\\n    at AsyncSeriesHook.eval [as callAsync] (eval at create (/Users/caicheng/testDir/test-ssr-demo/node_modules/tapable/lib/HookCodeFactory.js:32:10), <anonymous>:24:1)\\n    at AsyncSeriesHook.lazyCompileHook (/Users/caicheng/testDir/test-ssr-demo/node_modules/tapable/lib/Hook.js:154:20)\\n    at compilation.seal.err (/Users/caicheng/testDir/test-ssr-demo/node_modules/webpack/lib/Compiler.js:627:30)\\n    at AsyncSeriesHook.eval [as callAsync] (eval at create (/Users/caicheng/testDir/test-ssr-demo/node_modules/tapable/lib/HookCodeFactory.js:32:10), <anonymous>:6:1)\\n    at AsyncSeriesHook.lazyCompileHook (/Users/caicheng/testDir/test-ssr-demo/node_modules/tapable/lib/Hook.js:154:20)\\n    at hooks.optimizeAssets.callAsync.err (/Users/caicheng/testDir/test-ssr-demo/node_modules/webpack/lib/Compilation.js:1325:35)\\n    at AsyncSeriesHook.eval [as callAsync] (eval at create (/Users/caicheng/testDir/test-ssr-demo/node_modules/tapable/lib/HookCodeFactory.js:32:10), <anonymous>:6:1)\\n    at AsyncSeriesHook.lazyCompileHook (/Users/caicheng/testDir/test-ssr-demo/node_modules/tapable/lib/Hook.js:154:20)\\n    at hooks.optimizeChunkAssets.callAsync.err (/Users/caicheng/testDir/test-ssr-demo/node_modules/webpack/lib/Compilation.js:1316:32)\\n    at AsyncSeriesHook.eval [as callAsync] (eval at create (/Users/caicheng/testDir/test-ssr-demo/node_modules/tapable/lib/HookCodeFactory.js:32:10), <anonymous>:6:1)\\n    at AsyncSeriesHook.lazyCompileHook (/Users/caicheng/testDir/test-ssr-demo/node_modules/tapable/lib/Hook.js:154:20)\\n    at hooks.additionalAssets.callAsync.err (/Users/caicheng/testDir/test-ssr-demo/node_modules/webpack/lib/Compilation.js:1311:36)\\n    at AsyncSeriesHook.eval [as callAsync] (eval at create (/Users/caicheng/testDir/test-ssr-demo/node_modules/tapable/lib/HookCodeFactory.js:32:10), <anonymous>:6:1)\\n    at AsyncSeriesHook.lazyCompileHook (/Users/caicheng/testDir/test-ssr-demo/node_modules/tapable/lib/Hook.js:154:20)\\n    at hooks.optimizeTree.callAsync.err (/Users/caicheng/testDir/test-ssr-demo/node_modules/webpack/lib/Compilation.js:1307:32)\\n    at AsyncSeriesHook.eval [as callAsync] (eval at create (/Users/caicheng/testDir/test-ssr-demo/node_modules/tapable/lib/HookCodeFactory.js:32:10), <anonymous>:6:1)\\n    at AsyncSeriesHook.lazyCompileHook (/Users/caicheng/testDir/test-ssr-demo/node_modules/tapable/lib/Hook.js:154:20)\\n    at Compilation.seal (/Users/caicheng/testDir/test-ssr-demo/node_modules/webpack/lib/Compilation.js:1244:27)\\n    at hooks.make.callAsync.err (/Users/caicheng/testDir/test-ssr-demo/node_modules/webpack/lib/Compiler.js:624:17)\\n    at _err0 (eval at create (/Users/caicheng/testDir/test-ssr-demo/node_modules/tapable/lib/HookCodeFactory.js:32:10), <anonymous>:11:1)\\n    at _addModuleChain (/Users/caicheng/testDir/test-ssr-demo/node_modules/webpack/lib/Compilation.js:1095:12)\\n    at processModuleDependencies.err (/Users/caicheng/testDir/test-ssr-demo/node_modules/webpack/lib/Compilation.js:1007:9)\\n    at _combinedTickCallback (internal/process/next_tick.js:131:7)\\n    at process._tickCallback (internal/process/next_tick.js:180:9)\");\n\n//# sourceURL=webpack:///./src/views/home/style.scss?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/views/home/style.scss?");
 
 /***/ }),
 
@@ -313,6 +299,17 @@ eval("module.exports = require(\"react-router-dom\");\n\n//# sourceURL=webpack:/
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"redux\");\n\n//# sourceURL=webpack:///external_%22redux%22?");
+
+/***/ }),
+
+/***/ "redux-saga":
+/*!*****************************!*\
+  !*** external "redux-saga" ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"redux-saga\");\n\n//# sourceURL=webpack:///external_%22redux-saga%22?");
 
 /***/ }),
 
