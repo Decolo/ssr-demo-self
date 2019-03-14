@@ -7,25 +7,15 @@ import streamToPromise from 'stream-to-promise'
 import routes from '@/routes'
 
 export default async (ctx, store, routes) => {
-  const context = {}
   const container = renderToNodeStream(
     <Provider store={store}>
-      <StaticRouter location={ctx.request.path} context={context}>
+      <StaticRouter location={ctx.request.path} context={{}}>
         {renderRoutes(routes)}
       </StaticRouter>
     </Provider>
   )
   
   await streamToPromise(container).then(data => {
-    // 302重定向
-    if (context.action === 'REPLACE') {
-      return ctx.redirect('/')
-    }
-    // 404 页面
-    if (context.isNotFound) {
-      ctx.status = 404
-    }
-
     ctx.body = `
       <!DOCTYPE html>
         <html lang="en">

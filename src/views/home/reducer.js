@@ -1,5 +1,4 @@
-import { REQUEST_HOME_DATA, RECEIVE_HOME_DATA } from './action'
-
+import { REQUEST_HOME_DATA, RECEIVE_HOME_DATA } from '@/store/actions'
 import { handleActions } from 'redux-actions'
 
 const homeData = handleActions({
@@ -7,10 +6,13 @@ const homeData = handleActions({
     ...state,
     isLoading: true
   }),
-  [RECEIVE_HOME_DATA]: (state, action) => ({
-    isLoading: false,
-    data: action.payload.data
-  })
+  [RECEIVE_HOME_DATA]: (state, action) => {
+    return {
+      ...state,
+      isLoading: false,
+      data: action.payload
+    }
+  }
 }, {
   isLoading: false,
   data: []

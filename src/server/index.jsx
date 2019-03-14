@@ -25,6 +25,7 @@ app.use(async(ctx) => {
   })
   // 服务器请求数据，先获取当前页面所需数据，再填充到store
   await Promise.all(promises)
+  console.log(store.getState())
   // 根据服务端填充的store进行
   await render(ctx, store, routes)
 })

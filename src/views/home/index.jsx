@@ -1,16 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { doFetchHomeData } from '@/store/action'
+import { doRequestHomeData, doFetchHomeData } from '@/store/actions'
 import './style.scss'
 
 class Home extends React.Component {
-  componentDidMount() {
-    console.log(this.props.list)
-  }
+  componentDidMount() {}
   handleClick() {
     alert(111)
   }
   render() {
+    console.log(this.props)
     return (
       <div>
         <button onClick={this.handleClick}>click</button>
@@ -21,7 +20,7 @@ class Home extends React.Component {
 
 Home.loadData = store => store.dispatch(doFetchHomeData())
 const mapStateToProps = state => ({ 
- list: state.home.list
+ state: state
 })
 
 export default connect(mapStateToProps)(Home)

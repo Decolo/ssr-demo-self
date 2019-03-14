@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/api/index.js":
+/*!**************************!*\
+  !*** ./src/api/index.js ***!
+  \**************************/
+/*! exports provided: baseURL, api */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"baseURL\", function() { return baseURL; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"api\", function() { return api; });\nconst baseURL = 'http://127.0.0.1:8080';\nconst api = {\n  fetchHomeList: {\n    method: 'GET',\n    url: '/home/list'\n  }\n};\n\n//# sourceURL=webpack:///./src/api/index.js?");
+
+/***/ }),
+
 /***/ "./src/routes.jsx":
 /*!************************!*\
   !*** ./src/routes.jsx ***!
@@ -106,7 +118,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _vie
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var koa__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! koa */ \"koa\");\n/* harmony import */ var koa__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(koa__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var koa_static__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! koa-static */ \"koa-static\");\n/* harmony import */ var koa_static__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(koa_static__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var react_router_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-config */ \"react-router-config\");\n/* harmony import */ var react_router_config__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_router_config__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/store */ \"./src/store/index.js\");\n/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/routes */ \"./src/routes.jsx\");\n/* harmony import */ var _render__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./render */ \"./src/server/render.js\");\n\n\n\n\n\n\n\nconst app = new koa__WEBPACK_IMPORTED_MODULE_0___default.a();\napp.use(koa_static__WEBPACK_IMPORTED_MODULE_1___default()(path__WEBPACK_IMPORTED_MODULE_2___default.a.resolve(process.cwd() + '/public')));\napp.use(async ctx => {\n  const store = Object(_store__WEBPACK_IMPORTED_MODULE_4__[\"getStore\"])();\n  const promises = [];\n  const mtRoutes = Object(react_router_config__WEBPACK_IMPORTED_MODULE_3__[\"matchRoutes\"])(_routes__WEBPACK_IMPORTED_MODULE_5__[\"default\"], ctx.request.path); // console.log(mtRoutes)\n  // debugger\n\n  mtRoutes.forEach(item => {\n    if (item.route.loadData) {\n      promises.push(new Promise(resolve => {\n        item.route.loadData(store);\n        resolve();\n      }));\n    }\n  }); // 服务器请求数据，先获取当前页面所需数据，再填充到store\n\n  await Promise.all(promises); // 根据服务端填充的store进行\n\n  await Object(_render__WEBPACK_IMPORTED_MODULE_6__[\"default\"])(ctx, store, _routes__WEBPACK_IMPORTED_MODULE_5__[\"default\"]);\n});\napp.listen(3000);\n\n//# sourceURL=webpack:///./src/server/index.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var koa__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! koa */ \"koa\");\n/* harmony import */ var koa__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(koa__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var koa_static__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! koa-static */ \"koa-static\");\n/* harmony import */ var koa_static__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(koa_static__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var react_router_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-config */ \"react-router-config\");\n/* harmony import */ var react_router_config__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_router_config__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/store */ \"./src/store/index.js\");\n/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/routes */ \"./src/routes.jsx\");\n/* harmony import */ var _render__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./render */ \"./src/server/render.js\");\n\n\n\n\n\n\n\nconst app = new koa__WEBPACK_IMPORTED_MODULE_0___default.a();\napp.use(koa_static__WEBPACK_IMPORTED_MODULE_1___default()(path__WEBPACK_IMPORTED_MODULE_2___default.a.resolve(process.cwd() + '/public')));\napp.use(async ctx => {\n  const store = Object(_store__WEBPACK_IMPORTED_MODULE_4__[\"getStore\"])();\n  const promises = [];\n  const mtRoutes = Object(react_router_config__WEBPACK_IMPORTED_MODULE_3__[\"matchRoutes\"])(_routes__WEBPACK_IMPORTED_MODULE_5__[\"default\"], ctx.request.path); // console.log(mtRoutes)\n  // debugger\n\n  mtRoutes.forEach(item => {\n    if (item.route.loadData) {\n      promises.push(new Promise(resolve => {\n        item.route.loadData(store);\n        resolve();\n      }));\n    }\n  }); // 服务器请求数据，先获取当前页面所需数据，再填充到store\n\n  await Promise.all(promises);\n  console.log(store.getState()); // 根据服务端填充的store进行\n\n  await Object(_render__WEBPACK_IMPORTED_MODULE_6__[\"default\"])(ctx, store, _routes__WEBPACK_IMPORTED_MODULE_5__[\"default\"]);\n});\napp.listen(3000);\n\n//# sourceURL=webpack:///./src/server/index.jsx?");
 
 /***/ }),
 
@@ -118,7 +130,31 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var koa_
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ \"react-redux\");\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var react_router_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-config */ \"react-router-config\");\n/* harmony import */ var react_router_config__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_router_config__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var stream_to_promise__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! stream-to-promise */ \"stream-to-promise\");\n/* harmony import */ var stream_to_promise__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(stream_to_promise__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/routes */ \"./src/routes.jsx\");\n\n\n\n\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (async (ctx, store, routes) => {\n  const context = {};\n  const container = Object(react_dom_server__WEBPACK_IMPORTED_MODULE_1__[\"renderToNodeStream\"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_3__[\"Provider\"], {\n    store: store\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__[\"StaticRouter\"], {\n    location: ctx.request.path,\n    context: context\n  }, Object(react_router_config__WEBPACK_IMPORTED_MODULE_4__[\"renderRoutes\"])(routes))));\n  await stream_to_promise__WEBPACK_IMPORTED_MODULE_5___default()(container).then(data => {\n    // 302重定向\n    if (context.action === 'REPLACE') {\n      return ctx.redirect('/');\n    } // 404 页面\n\n\n    if (context.isNotFound) {\n      ctx.status = 404;\n    }\n\n    ctx.body = `\n      <!DOCTYPE html>\n        <html lang=\"en\">\n        <head>\n          <meta charset=\"UTF-8\">\n          <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n          <meta httpquiv=\"X-UA-Compatible\" content=\"ie=edge\">\n          <title>测试</title>\n          <link rel=\"stylesheet\" href=\"css/main.css\">\n        </head>\n        <body>\n          <div id=\"root\">${data.toString()}</div>\n          <!-- 从服务器端拿到脱水的数据状态 -->\n          <script>\n            window.context = {\n              state: ${JSON.stringify(store.getState())}\n            }\n          </script>\n          <!-- 引入同构代码 -->\n          <script src=\"js/index.js\"></script>\n        </body>\n      </html>\n    `;\n  });\n});\n\n//# sourceURL=webpack:///./src/server/render.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/server */ \"react-dom/server\");\n/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ \"react-router-dom\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ \"react-redux\");\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var react_router_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-config */ \"react-router-config\");\n/* harmony import */ var react_router_config__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_router_config__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var stream_to_promise__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! stream-to-promise */ \"stream-to-promise\");\n/* harmony import */ var stream_to_promise__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(stream_to_promise__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/routes */ \"./src/routes.jsx\");\n\n\n\n\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (async (ctx, store, routes) => {\n  const container = Object(react_dom_server__WEBPACK_IMPORTED_MODULE_1__[\"renderToNodeStream\"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_3__[\"Provider\"], {\n    store: store\n  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__[\"StaticRouter\"], {\n    location: ctx.request.path,\n    context: {}\n  }, Object(react_router_config__WEBPACK_IMPORTED_MODULE_4__[\"renderRoutes\"])(routes))));\n  await stream_to_promise__WEBPACK_IMPORTED_MODULE_5___default()(container).then(data => {\n    ctx.body = `\n      <!DOCTYPE html>\n        <html lang=\"en\">\n        <head>\n          <meta charset=\"UTF-8\">\n          <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n          <meta httpquiv=\"X-UA-Compatible\" content=\"ie=edge\">\n          <title>测试</title>\n          <link rel=\"stylesheet\" href=\"css/main.css\">\n        </head>\n        <body>\n          <div id=\"root\">${data.toString()}</div>\n          <!-- 从服务器端拿到脱水的数据状态 -->\n          <script>\n            window.context = {\n              state: ${JSON.stringify(store.getState())}\n            }\n          </script>\n          <!-- 引入同构代码 -->\n          <script src=\"js/index.js\"></script>\n        </body>\n      </html>\n    `;\n  });\n});\n\n//# sourceURL=webpack:///./src/server/render.js?");
+
+/***/ }),
+
+/***/ "./src/server/request.js":
+/*!*******************************!*\
+  !*** ./src/server/request.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"axios\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/api */ \"./src/api/index.js\");\n\n\n\nconst fetch = options => {\n  const params = {\n    baseURL: _api__WEBPACK_IMPORTED_MODULE_1__[\"baseURL\"],\n    ...options\n  };\n  const {\n    method\n  } = options;\n\n  if (method.toUpperCase() === 'GET') {\n    params.params = params.data;\n    delete params.data;\n  }\n\n  return axios__WEBPACK_IMPORTED_MODULE_0___default()(params).then(res => {\n    return res.data;\n  }).catch(error => {\n    console.log(error);\n  });\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (fetch);\n\n//# sourceURL=webpack:///./src/server/request.js?");
+
+/***/ }),
+
+/***/ "./src/store/actions/index.js":
+/*!************************************!*\
+  !*** ./src/store/actions/index.js ***!
+  \************************************/
+/*! exports provided: REQUEST_HOME_DATA, RECEIVE_HOME_DATA, FETCH_HOME_DATA, doRequestHomeData, doReceiveHomeData, doFetchHomeData */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"REQUEST_HOME_DATA\", function() { return REQUEST_HOME_DATA; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"RECEIVE_HOME_DATA\", function() { return RECEIVE_HOME_DATA; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"FETCH_HOME_DATA\", function() { return FETCH_HOME_DATA; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"doRequestHomeData\", function() { return doRequestHomeData; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"doReceiveHomeData\", function() { return doReceiveHomeData; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"doFetchHomeData\", function() { return doFetchHomeData; });\n/* harmony import */ var redux_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux-actions */ \"redux-actions\");\n/* harmony import */ var redux_actions__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux_actions__WEBPACK_IMPORTED_MODULE_0__);\n\nconst REQUEST_HOME_DATA = 'REQUEST_HOME_DATA';\nconst RECEIVE_HOME_DATA = 'RECEIVE_HOME_DATA';\nconst FETCH_HOME_DATA = 'FETCH_HOME_DATA';\nconst doRequestHomeData = Object(redux_actions__WEBPACK_IMPORTED_MODULE_0__[\"createAction\"])(REQUEST_HOME_DATA);\nconst doReceiveHomeData = Object(redux_actions__WEBPACK_IMPORTED_MODULE_0__[\"createAction\"])(RECEIVE_HOME_DATA);\nconst doFetchHomeData = Object(redux_actions__WEBPACK_IMPORTED_MODULE_0__[\"createAction\"])(FETCH_HOME_DATA);\n\n//# sourceURL=webpack:///./src/store/actions/index.js?");
 
 /***/ }),
 
@@ -130,7 +166,31 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getStore\", function() { return getStore; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getClientStore\", function() { return getClientStore; });\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"redux\");\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var redux_saga__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-saga */ \"redux-saga\");\n/* harmony import */ var redux_saga__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_saga__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _views_home_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/views/home/reducer */ \"./src/views/home/reducer.js\");\n/* harmony import */ var _views_about_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/views/about/reducer */ \"./src/views/about/reducer.js\");\n\n\n\n\nconst sagaMiddleware = redux_saga__WEBPACK_IMPORTED_MODULE_1___default()();\nconst reducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  home: _views_home_reducer__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  about: _views_about_reducer__WEBPACK_IMPORTED_MODULE_3__[\"default\"]\n});\nconst getStore = req => {\n  return Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"createStore\"])(reducer, Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"applyMiddleware\"])(sagaMiddleware));\n};\nconst getClientStore = () => {\n  // 从服务器端输出的页面上拿到脱水的数据\n  const defaultState = window.context.state; // 当做 store的初始数据（即注水）\n\n  return Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"createStore\"])(reducer, defaultState, Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"applyMiddleware\"])(sagaMiddleware));\n};\n\n//# sourceURL=webpack:///./src/store/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getStore\", function() { return getStore; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getClientStore\", function() { return getClientStore; });\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"redux\");\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var redux_saga__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-saga */ \"redux-saga\");\n/* harmony import */ var redux_saga__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_saga__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _saga__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./saga */ \"./src/store/saga/index.js\");\n/* harmony import */ var _reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reducer */ \"./src/store/reducer/index.js\");\n\n\n\n\nconst sagaMiddleware = redux_saga__WEBPACK_IMPORTED_MODULE_1___default()();\nconst getStore = req => {\n  const store = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"createStore\"])(_reducer__WEBPACK_IMPORTED_MODULE_3__[\"default\"], Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"applyMiddleware\"])(sagaMiddleware));\n  sagaMiddleware.run(_saga__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\n  return store;\n};\nconst getClientStore = () => {\n  // 从服务器端输出的页面上拿到脱水的数据\n  const defaultState = window.context.state; // 当做 store的初始数据（即注水）\n\n  const store = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"createStore\"])(_reducer__WEBPACK_IMPORTED_MODULE_3__[\"default\"], defaultState, Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"applyMiddleware\"])(sagaMiddleware));\n  sagaMiddleware.run(_saga__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\n  return store;\n};\n\n//# sourceURL=webpack:///./src/store/index.js?");
+
+/***/ }),
+
+/***/ "./src/store/reducer/index.js":
+/*!************************************!*\
+  !*** ./src/store/reducer/index.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _views_home_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/views/home/reducer */ \"./src/views/home/reducer.js\");\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux */ \"redux\");\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_1__);\n\n\nconst reducer = Object(redux__WEBPACK_IMPORTED_MODULE_1__[\"combineReducers\"])({\n  home: _views_home_reducer__WEBPACK_IMPORTED_MODULE_0__[\"default\"]\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (reducer);\n\n//# sourceURL=webpack:///./src/store/reducer/index.js?");
+
+/***/ }),
+
+/***/ "./src/store/saga/index.js":
+/*!*********************************!*\
+  !*** ./src/store/saga/index.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return rootSaga; });\n/* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux-saga/effects */ \"redux-saga/effects\");\n/* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _views_home_saga__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/views/home/saga */ \"./src/views/home/saga.js\");\n\n\nfunction* rootSaga() {\n  yield Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__[\"all\"])([Object(_views_home_saga__WEBPACK_IMPORTED_MODULE_1__[\"watchFetchHomeData\"])()]);\n}\n\n//# sourceURL=webpack:///./src/store/saga/index.js?");
 
 /***/ }),
 
@@ -146,28 +206,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 
 /***/ }),
 
-/***/ "./src/views/about/reducer.js":
-/*!************************************!*\
-  !*** ./src/views/about/reducer.js ***!
-  \************************************/
-/*! exports provided: default */
-/***/ (function(module, exports) {
-
-eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nError: ENOENT: no such file or directory, open '/Users/caicheng/testDir/test-ssr-demo/src/views/about/reducer.js'\");\n\n//# sourceURL=webpack:///./src/views/about/reducer.js?");
-
-/***/ }),
-
-/***/ "./src/views/home/action.js":
-/*!**********************************!*\
-  !*** ./src/views/home/action.js ***!
-  \**********************************/
-/*! exports provided: FETCH_HOME_DATA, doFetchHomeData */
-/***/ (function(module, exports) {
-
-eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nError: ENOENT: no such file or directory, open '/Users/caicheng/testDir/test-ssr-demo/src/views/home/action.js'\");\n\n//# sourceURL=webpack:///./src/views/home/action.js?");
-
-/***/ }),
-
 /***/ "./src/views/home/index.jsx":
 /*!**********************************!*\
   !*** ./src/views/home/index.jsx ***!
@@ -176,7 +214,7 @@ eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/li
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ \"react-redux\");\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_1__);\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module '@/store/action'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.scss */ \"./src/views/home/style.scss\");\n/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_style_scss__WEBPACK_IMPORTED_MODULE_3__);\n\n\n\n\n\nclass Home extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {\n  componentDidMount() {\n    console.log(this.props.list);\n  }\n\n  handleClick() {\n    alert(111);\n  }\n\n  render() {\n    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"button\", {\n      onClick: this.handleClick\n    }, \"click\"));\n  }\n\n}\n\nHome.loadData = store => store.dispatch(!(function webpackMissingModule() { var e = new Error(\"Cannot find module '@/store/action'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }())());\n\nconst mapStateToProps = state => ({\n  list: state.home.list\n});\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__[\"connect\"])(mapStateToProps)(Home));\n\n//# sourceURL=webpack:///./src/views/home/index.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ \"react-redux\");\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/store/actions */ \"./src/store/actions/index.js\");\n/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.scss */ \"./src/views/home/style.scss\");\n/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_style_scss__WEBPACK_IMPORTED_MODULE_3__);\n\n\n\n\n\nclass Home extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {\n  componentDidMount() {}\n\n  handleClick() {\n    alert(111);\n  }\n\n  render() {\n    console.log(this.props);\n    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"button\", {\n      onClick: this.handleClick\n    }, \"click\"));\n  }\n\n}\n\nHome.loadData = store => store.dispatch(Object(_store_actions__WEBPACK_IMPORTED_MODULE_2__[\"doFetchHomeData\"])());\n\nconst mapStateToProps = state => ({\n  state: state\n});\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__[\"connect\"])(mapStateToProps)(Home));\n\n//# sourceURL=webpack:///./src/views/home/index.jsx?");
 
 /***/ }),
 
@@ -188,7 +226,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action */ \"./src/views/home/action.js\");\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module 'redux-actions'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n\n\nconst homeData = !(function webpackMissingModule() { var e = new Error(\"Cannot find module 'redux-actions'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({\n  [_action__WEBPACK_IMPORTED_MODULE_0__[\"REQUEST_HOME_DATA\"]]: state => ({ ...state,\n    isLoading: true\n  }),\n  [_action__WEBPACK_IMPORTED_MODULE_0__[\"RECEIVE_HOME_DATA\"]]: (state, action) => ({\n    isLoading: false,\n    data: action.payload.data\n  })\n}, {\n  isLoading: false,\n  data: []\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (homeData);\n\n//# sourceURL=webpack:///./src/views/home/reducer.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/store/actions */ \"./src/store/actions/index.js\");\n/* harmony import */ var redux_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-actions */ \"redux-actions\");\n/* harmony import */ var redux_actions__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_actions__WEBPACK_IMPORTED_MODULE_1__);\n\n\nconst homeData = Object(redux_actions__WEBPACK_IMPORTED_MODULE_1__[\"handleActions\"])({\n  [_store_actions__WEBPACK_IMPORTED_MODULE_0__[\"REQUEST_HOME_DATA\"]]: state => ({ ...state,\n    isLoading: true\n  }),\n  [_store_actions__WEBPACK_IMPORTED_MODULE_0__[\"RECEIVE_HOME_DATA\"]]: (state, action) => {\n    return { ...state,\n      isLoading: false,\n      data: action.payload\n    };\n  }\n}, {\n  isLoading: false,\n  data: []\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (homeData);\n\n//# sourceURL=webpack:///./src/views/home/reducer.js?");
+
+/***/ }),
+
+/***/ "./src/views/home/saga.js":
+/*!********************************!*\
+  !*** ./src/views/home/saga.js ***!
+  \********************************/
+/*! exports provided: watchFetchHomeData */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"watchFetchHomeData\", function() { return watchFetchHomeData; });\n/* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux-saga/effects */ \"redux-saga/effects\");\n/* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/store/actions */ \"./src/store/actions/index.js\");\n/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/api */ \"./src/api/index.js\");\n/* harmony import */ var _server_request__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/server/request */ \"./src/server/request.js\");\n\n\n\n\n\nfunction* fetchHomeDataAsync(action) {\n  const params = { ..._api__WEBPACK_IMPORTED_MODULE_2__[\"api\"]['fetchHomeList']\n  };\n  const data = yield Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__[\"call\"])(_server_request__WEBPACK_IMPORTED_MODULE_3__[\"default\"], params);\n\n  if (!data) {\n    return;\n  }\n\n  yield Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__[\"put\"])(Object(_store_actions__WEBPACK_IMPORTED_MODULE_1__[\"doReceiveHomeData\"])(data));\n}\n\nfunction* watchFetchHomeData() {\n  yield Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__[\"takeEvery\"])(_store_actions__WEBPACK_IMPORTED_MODULE_1__[\"FETCH_HOME_DATA\"], fetchHomeDataAsync);\n}\n\n//# sourceURL=webpack:///./src/views/home/saga.js?");
 
 /***/ }),
 
@@ -200,6 +250,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _act
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/views/home/style.scss?");
+
+/***/ }),
+
+/***/ "axios":
+/*!************************!*\
+  !*** external "axios" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"axios\");\n\n//# sourceURL=webpack:///external_%22axios%22?");
 
 /***/ }),
 
@@ -302,6 +363,17 @@ eval("module.exports = require(\"redux\");\n\n//# sourceURL=webpack:///external_
 
 /***/ }),
 
+/***/ "redux-actions":
+/*!********************************!*\
+  !*** external "redux-actions" ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"redux-actions\");\n\n//# sourceURL=webpack:///external_%22redux-actions%22?");
+
+/***/ }),
+
 /***/ "redux-saga":
 /*!*****************************!*\
   !*** external "redux-saga" ***!
@@ -310,6 +382,17 @@ eval("module.exports = require(\"redux\");\n\n//# sourceURL=webpack:///external_
 /***/ (function(module, exports) {
 
 eval("module.exports = require(\"redux-saga\");\n\n//# sourceURL=webpack:///external_%22redux-saga%22?");
+
+/***/ }),
+
+/***/ "redux-saga/effects":
+/*!*************************************!*\
+  !*** external "redux-saga/effects" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"redux-saga/effects\");\n\n//# sourceURL=webpack:///external_%22redux-saga/effects%22?");
 
 /***/ }),
 

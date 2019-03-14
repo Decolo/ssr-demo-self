@@ -1,21 +1,21 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import homeReducer from '@/views/home/reducer'
-import aboutReducer from '@/views/about/reducer'
+import rootSaga from './saga'
+import reducer from './reducer'
 
 const sagaMiddleware = createSagaMiddleware()
-const reducer = combineReducers({
-  home: homeReducer,
-  about: aboutReducer
-})
 
 export const getStore = req => {
-  return createStore(reducer, applyMiddleware(sagaMiddleware))
+  const store = createStore(reducer, applyMiddleware(sagaMiddleware))
+  sagaMiddleware.run(rootSaga)
+  return store
 }
 
 export const getClientStore = () => {
   // 从服务器端输出的页面上拿到脱水的数据
   const defaultState = window.context.state
   // 当做 store的初始数据（即注水）
-  return createStore(reducer, defaultState, applyMiddleware(sagaMiddleware))
+  const store = createStore(reducer, defaultState, applyMiddleware(sagaMiddleware))
+  sagaMiddleware.run(rootSaga)
+  return store
 }
