@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { doRequestHomeData, doFetchHomeData } from '@/store/actions'
+import { api } from '@/api'
 import './style.scss'
 
 class Home extends React.Component {
-  componentDidMount() {}
   handleClick() {
     alert(111)
   }
@@ -17,8 +17,13 @@ class Home extends React.Component {
     )
   }
 }
-
-Home.loadData = store => store.dispatch(doFetchHomeData())
+Home.loadData = store => {
+  const params = {
+    ...api['fetchHomeList']
+  }
+  store.dispatch(doFetchHomeData(params))
+}
+  
 const mapStateToProps = state => ({ 
  state: state
 })

@@ -7,6 +7,7 @@ const homeData = handleActions({
     isLoading: true
   }),
   [RECEIVE_HOME_DATA]: (state, action) => {
+    // console.log(5)
     return {
       ...state,
       isLoading: false,

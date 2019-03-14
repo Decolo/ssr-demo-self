@@ -17,16 +17,13 @@ app.use(async(ctx) => {
   // debugger
   mtRoutes.forEach(item => {
     if (item.route.loadData) {
-      promises.push(new Promise(resolve => {
-        item.route.loadData(store)
-        resolve()
-      }))
+      item.route.loadData(store)
     }
   })
   // 服务器请求数据，先获取当前页面所需数据，再填充到store
-  await Promise.all(promises)
-  console.log(store.getState())
-  // 根据服务端填充的store进行
+  
+  // 根据服务端填充的store进行  
+  // await render(ctx, store, routes)
   await render(ctx, store, routes)
 })
 
