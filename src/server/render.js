@@ -2,21 +2,21 @@ import React from 'react'
 import { renderToNodeStream } from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { renderRoutes } from 'react-router-config'
 import streamToPromise from 'stream-to-promise'
+import { renderRoutes } from 'react-router-config'
 import routes from '@/routes'
-
 
 const render = (ctx, store, routes) => {
   return new Promise(resolve => {
+    const container = renderToNodeStream(
+      <Provider store={store}>
+        <StaticRouter location={ctx.request.path} context={{}}>
+          {renderRoutes(routes)}
+        </StaticRouter>
+      </Provider>
+    )
     store.subscribe(async() => {
-      const container = renderToNodeStream(
-        <Provider store={store}>
-          <StaticRouter location={ctx.request.path} context={{}}>
-            {renderRoutes(routes)}
-          </StaticRouter>
-        </Provider>
-      )
+      await streamToPromise(container).then(data => {
         ctx.body = `
           <!DOCTYPE html>
             <html lang="en">
@@ -28,7 +28,7 @@ const render = (ctx, store, routes) => {
               <link rel="stylesheet" href="css/main.css">
             </head>
             <body>
-              <div id="root">${container}</div>
+              <div id="root">${data}</div>
               <!-- 从服务器端拿到脱水的数据状态 -->
               <script>
                 window.context = {
@@ -41,6 +41,7 @@ const render = (ctx, store, routes) => {
           </html>
         `
         resolve()
+      })
     })
   })
 }

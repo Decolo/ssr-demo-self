@@ -5,18 +5,27 @@ import { api } from '@/api'
 import './style.scss'
 
 class Home extends React.Component {
-  handleClick() {
-    alert(111)
+  componentDidMount() {
+    if (!this.props.data) {
+      const params = {
+        ...api['fetchHomeList']
+      }
+      this.dispatch(doFetchHomeData(params))
+    }
   }
   render() {
-    console.log(this.props)
+    const { data } = this.props
     return (
       <div>
+        <ul className="list">
+          {data.map((item, index) => <li className="item" key={index}>{item}</li>)}
+        </ul>
         <button onClick={this.handleClick}>click</button>
       </div>
     )
   }
 }
+
 Home.loadData = store => {
   const params = {
     ...api['fetchHomeList']
@@ -25,7 +34,7 @@ Home.loadData = store => {
 }
   
 const mapStateToProps = state => ({ 
- state: state
+  data: state.home.data
 })
 
 export default connect(mapStateToProps)(Home)

@@ -11,9 +11,7 @@ app.use(serve(path.resolve(process.cwd() + '/public')))
 
 app.use(async(ctx) => {
   const store = getStore()
-  const promises = []
   const mtRoutes = matchRoutes(routes, ctx.request.path)
-  // console.log(mtRoutes)
   // debugger
   mtRoutes.forEach(item => {
     if (item.route.loadData) {
@@ -21,9 +19,8 @@ app.use(async(ctx) => {
     }
   })
   // 服务器请求数据，先获取当前页面所需数据，再填充到store
-  
   // 根据服务端填充的store进行  
-  // await render(ctx, store, routes)
+  // console.log(1)
   await render(ctx, store, routes)
 })
 
